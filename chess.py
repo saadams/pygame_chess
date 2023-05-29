@@ -10,7 +10,7 @@ SQUARE_SIZE = WIDTH // COLS
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 
-circle_radius = SQUARE_SIZE // 2 - 10  # Radius of the circle
+circle_radius = SQUARE_SIZE // 2 - 8  # Radius of the circle
 circle_color = (255, 0, 0) 
 
 # Initialize Pygame
@@ -30,6 +30,14 @@ def draw_board():
             pygame.draw.rect(screen, color, (x, y, SQUARE_SIZE, SQUARE_SIZE))
 
             if row == 1:
+              
+              square_pos = (x,y)
+              #  screen.blit(pawn_image, (x, y))
+              #pygame.draw.circle(screen, circle_color, circle_center, circle_radius)
+              #find circle center by taking x coord and add half the square width sam with y coord.
+              circle_center = (square_pos[0] + SQUARE_SIZE // 2, square_pos[1] + SQUARE_SIZE // 2)
+              pygame.draw.circle(screen, circle_color, circle_center, circle_radius)
+            if row == 6:
               
               square_pos = (x,y)
               #  screen.blit(pawn_image, (x, y))
